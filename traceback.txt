@@ -1,47 +1,36 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 63, in script
-    "Welcome to the point-and-click game!"
-OSError: Couldn't find file 'click.mp3'.
+  File "game/script.rpy", line 65, in script
+    window hide black
+  File "renpy/common/000window.rpy", line 186, in execute_window_hide
+    trans = eval(p)
+  File "game/script.rpy", line 65, in <module>
+    window hide black
+NameError: name 'black' is not defined
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 63, in script
-    "Welcome to the point-and-click game!"
-  File "/home/ashleysseries/renpy-8.1.0-sdk/renpy/ast.py", line 930, in execute
-    renpy.exports.say(who, what, *args, **kwargs)
-  File "/home/ashleysseries/renpy-8.1.0-sdk/renpy/exports.py", line 1473, in say
-    who(what, *args, **kwargs)
-  File "/home/ashleysseries/renpy-8.1.0-sdk/renpy/character.py", line 1349, in __call__
-    self.do_display(who, what, cb_args=self.cb_args, dtt=dtt, **display_args)
-  File "/home/ashleysseries/renpy-8.1.0-sdk/renpy/character.py", line 1000, in do_display
-    display_say(who,
-  File "/home/ashleysseries/renpy-8.1.0-sdk/renpy/character.py", line 690, in display_say
-    rv = renpy.ui.interact(mouse='say', type=type, roll_forward=roll_forward)
-  File "/home/ashleysseries/renpy-8.1.0-sdk/renpy/ui.py", line 299, in interact
-    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
-  File "/home/ashleysseries/renpy-8.1.0-sdk/renpy/display/core.py", line 3499, in interact
-    repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, pause=pause, pause_start=pause_start, pause_modal=pause_modal, **kwargs) # type: ignore
-  File "/home/ashleysseries/renpy-8.1.0-sdk/renpy/display/core.py", line 4293, in interact_core
-    renpy.audio.audio.periodic()
-  File "/home/ashleysseries/renpy-8.1.0-sdk/renpy/audio/audio.py", line 1224, in periodic
-    raise_(exc[0], exc[1], exc[2])
-  File "/home/tom/ab/renpy-build/tmp/install.linux-x86_64/lib/python3.9/site-packages/future/utils/__init__.py", line 444, in raise_
-  File "/home/ashleysseries/renpy-8.1.0-sdk/renpy/audio/audio.py", line 1202, in periodic_thread_main
-    periodic_pass()
-  File "/home/ashleysseries/renpy-8.1.0-sdk/renpy/audio/audio.py", line 1144, in periodic_pass
-    c.periodic()
-  File "/home/ashleysseries/renpy-8.1.0-sdk/renpy/audio/audio.py", line 534, in periodic
-    topf = load(filename)
-  File "/home/ashleysseries/renpy-8.1.0-sdk/renpy/audio/audio.py", line 72, in load
-    rv = renpy.loader.load(fn, directory="audio")
-  File "/home/ashleysseries/renpy-8.1.0-sdk/renpy/loader.py", line 833, in load
-    raise IOError("Couldn't find file '%s'." % name)
-OSError: Couldn't find file 'click.mp3'.
+  File "game/script.rpy", line 65, in script
+    window hide black
+  File "C:\FPT\AC\renpy-8.3.0-sdk\renpy\ast.py", line 1974, in execute
+    self.call("execute")
+  File "C:\FPT\AC\renpy-8.3.0-sdk\renpy\ast.py", line 1953, in call
+    return renpy.statements.call(method, parsed, *args, **kwargs)
+  File "C:\FPT\AC\renpy-8.3.0-sdk\renpy\statements.py", line 374, in call
+    return method(parsed, *args, **kwargs)
+  File "renpy/common/000window.rpy", line 186, in execute_window_hide
+    trans = eval(p)
+  File "C:\FPT\AC\renpy-8.3.0-sdk\renpy\python.py", line 1209, in py_eval
+    return py_eval_bytecode(code, globals, locals)
+  File "C:\FPT\AC\renpy-8.3.0-sdk\renpy\python.py", line 1202, in py_eval_bytecode
+    return eval(bytecode, globals, locals)
+  File "game/script.rpy", line 65, in <module>
+    window hide black
+NameError: name 'black' is not defined
 
-Linux-5.10.114-16025-ge75506b9d98e-x86_64-with-glibc2.31 x86_64
-Ren'Py 8.1.0.23051307
-dark_elegance 1.0
-Wed Aug 21 16:47:12 2024
+Windows-10-10.0.19045 AMD64
+Ren'Py 8.3.2.24090902
+Code Chou 1.0
+Mon Nov  4 20:56:21 2024

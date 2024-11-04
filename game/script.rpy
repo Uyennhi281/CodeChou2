@@ -61,10 +61,11 @@ default item3_clicked = False
 # Start label
 label start:
     #mở đầu
+    $ quick_menu = False
     scene black with fade
-    window hide
+    # window hide 
 
-    $ ui.clear()
+    # $ ui.clear()
 
     show text "Butterfly, is a beautiful creature, isn't it?" at truecenter with fade
     pause 2
@@ -83,6 +84,8 @@ label start:
     $ add_item("Talisman 2", "A talisman representing your lives left. If you run out, you die.")
     $ add_item("Talisman 3", "A talisman representing your lives left. If you run out, you die.")
     
+    $ quick_menu = True
+
     scene bg room
 
     show arisu_normal at custom_center
@@ -101,14 +104,14 @@ label start:
 
 
     show minimap:
-     zoom 0.7
-     xpos 1400
-     ypos 0
+        zoom 0.7
+        xpos 1400
+        ypos 0
  
     show you:
-     zoom 0.3
-     xpos 1500
-     ypos 60
+        zoom 0.3
+        xpos 1500
+        ypos 60
     # Display the room with interactive objects
     call screen room_screen
 
@@ -187,8 +190,8 @@ init python:
 label open_door:
     $ door_opened = True
     show key with dissolve:
-     yalign 0.2
-     xalign 0.5
+        yalign 0.2
+        xalign 0.5
     $ add_item("Key", "A key to the locked door.")
     $ add_entry ("You found a key.")
     $ add_entry ("You unlocked the door.")
@@ -200,8 +203,8 @@ label open_door:
 
 label up_life:
     show talisman with dissolve:
-     yalign 0.2
-     xalign 0.5
+        yalign 0.2
+        xalign 0.5
     "You found a talisman."
     $ add_entry("You found a talisman.")
     $ add_item("Talisman 4", "A talisman representing your lives left. If you run out, you die.")
@@ -211,30 +214,30 @@ label up_life:
 
 label door_still_closed:
     show code with dissolve:
-     yalign 0.2
-     xalign 0.5
+        yalign 0.2
+        xalign 0.5
     $ add_item("Code", "A code to the locked door. It needs a key as well.")
     $ add_entry("You found a code for the door, but it's still locked.")
     "You collect a Code. The door is still closed. Maybe it needs something else?"
     hide code with dissolve
     return
 label next_room:
- scene room_background with fade
- show minimap:
-     zoom 0.7
-     xpos 1400
-     ypos 0
- "Welcome to the next room."
- show you:
-     zoom 0.3
-     xpos 1700
-     ypos 60
- call screen next_room_screen
+    scene room_background with fade
+    show minimap:
+        zoom 0.7
+        xpos 1400
+        ypos 0
+    "Welcome to the next room."
+    show you:
+        zoom 0.3
+        xpos 1700
+        ypos 60
+    call screen next_room_screen
  
 # Define the next room screen
 screen next_room_screen():
     # You can add the background and interactive elements for the next room here
-     # ImageButton for item1
+    # ImageButton for item1
     imagebutton:
         idle "item1"
         hover "item1h"
@@ -242,12 +245,12 @@ screen next_room_screen():
         action [Jump("timed_choice")]
 
 label timed_choice:
- show mask with dissolve:
-     yalign 0.2
-     xalign 0.5
- "You find a weird object. It looks dangerous."
- hide mask with dissolve
- call screen timed_choice
+    show mask with dissolve:
+        yalign 0.2
+        xalign 0.5
+        "You find a weird object. It looks dangerous."
+    hide mask with dissolve
+    call screen timed_choice
 
 screen timed_choice:
 
